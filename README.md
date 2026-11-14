@@ -1,73 +1,49 @@
-# React + TypeScript + Vite
+# Grant Matching Agent — Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A web application developed as part of our capstone project at **Oregon State University** to help researchers discover relevant funding opportunities, explore faculty expertise, and find potential collaborators.
 
-Currently, two official plugins are available:
+The application makes it easier for researchers to find grants that align with their work and build teams for collaborative proposals. This repository contains the React frontend, while the AI matching and data processing are handled by the backend.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**Backend:** [Grant Matching Agent](https://github.com/parnashri/GrantMatchingAgent)
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Login and Signup:** User authentication with protected navigation.
+- **Faculty Profiles:** View and update research profiles.
+- **Grant Discovery:** Explore funding opportunities matched to faculty research interests.
+- **Team Building:** Find collaborators, form research teams, and discover grants suited to a team.
+- **AI-Assisted Workflows:** Chat-based interactions and streamed responses from the backend.
+- **Role-Based UI:** Different profile and navigation options based on user permissions.
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- React and TypeScript
+- Vite
+- Tailwind CSS
+- React Router
+- REST API integration
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Getting Started
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Clone the repository:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+git clone https://github.com/parnashri/GrantMatchingAgent-Frontend.git
+cd GrantMatchingAgent-Frontend
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Install dependencies:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm ci
 ```
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+Open `http://localhost:5173` or the URL displayed in your terminal.
+
+**Note:** The frontend requires a compatible backend. Update the API proxy configuration in `vite.config.ts` to point to your backend server. Some application features require additional authentication, faculty, and team endpoints.
